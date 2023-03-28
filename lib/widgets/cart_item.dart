@@ -12,10 +12,10 @@ class CartItem extends StatelessWidget {
   CartItem({
     required this.productID,
     required this.id,
-    required this.price, 
-    required this.quantity, 
+    required this.price,
+    required this.quantity,
     required this.title,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,25 +36,29 @@ class CartItem extends StatelessWidget {
         ),
       ),
       direction: DismissDirection.endToStart,
-      confirmDismiss: (direction){
-        return showDialog(context: context, builder: (context) => AlertDialog(
-          title: const Text('Are you sure?'),
-          content: const Text('Do you want to remove the item from the cart?'),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('No'),
-              onPressed: (){
-                Navigator.of(context).pop(false);
-              },
-            ),
-            TextButton(
-              child: const Text('Yes'),
-              onPressed: (){
-                Navigator.of(context).pop(true);
-              },
-            ),
-          ],
-        ),);
+      confirmDismiss: (direction) {
+        return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Are you sure?'),
+            content:
+                const Text('Do you want to remove the item from the cart?'),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('No'),
+                onPressed: () {
+                  Navigator.of(context).pop(false);
+                },
+              ),
+              TextButton(
+                child: const Text('Yes'),
+                onPressed: () {
+                  Navigator.of(context).pop(true);
+                },
+              ),
+            ],
+          ),
+        );
       },
       onDismissed: (direction) {
         Provider.of<Cart>(context, listen: false).removeItem(productID);
@@ -70,14 +74,13 @@ class CartItem extends StatelessWidget {
             leading: CircleAvatar(
               child: Padding(
                 padding: const EdgeInsets.all(5),
-                child: FittedBox(
-                  child: Text('\$$price}')),
+                child: FittedBox(child: Text('\$$price}')),
               ),
-              ),
-              title: Text(title),
-              subtitle: Text('Total: \$${(price*quantity)}'),
-              trailing: Text('$quantity x'),
-             ),
+            ),
+            title: Text(title),
+            subtitle: Text('Total: \$${(price * quantity)}'),
+            trailing: Text('$quantity x'),
+          ),
         ),
       ),
     );

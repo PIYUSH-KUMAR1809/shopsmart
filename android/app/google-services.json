@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "512003709013",
+    "firebase_url": "https://shopsmart-bc5ee-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "shopsmart-bc5ee",
+    "storage_bucket": "shopsmart-bc5ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512003709013:android:26aa8efe0ef0b43ca2dcdc",
+        "android_client_info": {
+          "package_name": "com.example.shopsmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512003709013-tglfqsdaq2b8gbgkn69rl3j5c3k60ftb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZZDHmeZzHD7DkVaw_9maV6gOjv_sxH6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512003709013-tglfqsdaq2b8gbgkn69rl3j5c3k60ftb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
