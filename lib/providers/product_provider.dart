@@ -4,8 +4,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/http_exception.dart';
 
-import 'dart:developer' show log;
-
 class Products with ChangeNotifier {
   List<Product> _items = [];
   List<Product> get favitems {

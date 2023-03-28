@@ -38,8 +38,6 @@ class Product with ChangeNotifier {
         ),
       );
       if (response.statusCode >= 400) {
-        print('hello1');
-        print('chsnged!');
         _setFavValue(oldStatus);
       }
     } catch (error) {

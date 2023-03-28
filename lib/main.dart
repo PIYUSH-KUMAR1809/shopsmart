@@ -61,8 +61,8 @@ class MyApp extends StatelessWidget {
                   builder: (ctx, authResultSnapShot) =>
                       authResultSnapShot.connectionState ==
                               ConnectionState.waiting
-                          ? SplashScreen()
-                          : AuthScreen(),
+                          ? const SplashScreen()
+                          : const AuthScreen(),
                 ),
           routes: {
             ProductDetailScreen.routeName: (context) =>
