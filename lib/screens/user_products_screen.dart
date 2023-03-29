@@ -5,9 +5,16 @@ import '../providers/product_provider.dart';
 import '../widgets/user_product_item.dart';
 import '../widgets/app_drawer.dart';
 
-class UserProductsScreen extends StatelessWidget {
+class UserProductsScreen extends StatefulWidget {
   static const routeName = '/user-products';
 
+  const UserProductsScreen({super.key});
+
+  @override
+  State<UserProductsScreen> createState() => _UserProductsScreenState();
+}
+
+class _UserProductsScreenState extends State<UserProductsScreen> {
   Future<void> _refreshProducts(BuildContext context) async {
     try {
       await Provider.of<Products>(context, listen: false)
@@ -16,8 +23,6 @@ class UserProductsScreen extends StatelessWidget {
       throw error;
     }
   }
-
-  const UserProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,7 @@ class UserProductsScreen extends StatelessWidget {
       ),
       drawer: const AppDrawer(),
       body: FutureBuilder(
+        future: _refreshProducts(context),
         builder: (ctx, snapshot) =>
             snapshot.connectionState == ConnectionState.waiting
                 ? const Center(

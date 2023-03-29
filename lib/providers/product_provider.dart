@@ -3,6 +3,7 @@ import './product.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/http_exception.dart';
+import 'dart:developer' show log;
 
 class Products with ChangeNotifier {
   List<Product> _items = [];
@@ -32,19 +33,26 @@ class Products with ChangeNotifier {
     var url2 = Uri.parse(
       'https://shopsmart-bc5ee-default-rtdb.asia-southeast1.firebasedatabase.app/userFavourites/$userId.json?auth=$authToken',
     );
+    log(url.toString());
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       //print('hello');
       //log(extractedData.toString());
-      if (extractedData == null) {
+
+      log(extractedData.toString());
+      List<Product> loadedProducts = [];
+      if (extractedData.isEmpty) {
+        _items = [];
+        log('1');
+        notifyListeners();
         return;
       }
       final favResponse = await http.get(
         url2,
       );
       final favData = json.decode(favResponse.body);
-      final List<Product> loadedProducts = [];
+
       extractedData.forEach((prodId, prodData) {
         // print(prodData);
         loadedProducts.add(Product(
